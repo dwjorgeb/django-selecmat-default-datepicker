@@ -115,3 +115,11 @@ def is_select(field):
 @register.filter
 def is_select_multiple(field):
     return isinstance(field.field.widget, forms.SelectMultiple)
+
+@register.filter
+def is_iterable(field):
+    try:
+        iterfield = iter(field)
+        return True
+    except TypeError:
+        return False
