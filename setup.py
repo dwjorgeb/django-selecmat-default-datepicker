@@ -10,7 +10,7 @@ with open("README.md", "r") as fh:
 
 setup(
 
-    name='selecmat',
+    name='django-selecmat',
 
     version=materializecssform.__version__,
 
@@ -26,7 +26,7 @@ setup(
 
     include_package_data=True,
 
-    url='https://github.com/dwjorgeb/selecmat',
+    url='https://github.com/dwjorgeb/django-selecmat',
     classifiers=[
         "Programming Language :: Python",
         "Development Status :: 4 - Beta",
