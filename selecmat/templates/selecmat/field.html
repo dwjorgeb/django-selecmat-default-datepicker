@@ -71,7 +71,7 @@
         <div class="col {{ classes.label }} {{ classes.value }} {{ classes.single_value }}">
             
             {% if field.auto_id %}
-                <label for="{{ field.auto_id }}" class="control-label {{ classes.label }} {% if field.field.required %}{{ form.required_css_class }}{% endif %}">{{ field.label }}</label>
+                <label style="position:inherit;" for="{{ field.auto_id }}" class="control-label {{ classes.label }} {% if field.field.required %}{{ form.required_css_class }}{% endif %}">{{ field.label }}</label>
             {% endif %}
             
             {% if classes.icon %}
