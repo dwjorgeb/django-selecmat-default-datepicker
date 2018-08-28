@@ -96,7 +96,7 @@
             {% if classes.icon %}
                 <i class="material-icons prefix">{{ classes.icon }}</i>
                 {% endif %}
-            <select name="{{ field.name }}">
+            <select name="{{ field.name }}" {% include 'materializecssform/attrs.html' %}>
                 {% if field|is_iterable %}
                     {% for choice in field %}
                             {{ choice.tag }}
