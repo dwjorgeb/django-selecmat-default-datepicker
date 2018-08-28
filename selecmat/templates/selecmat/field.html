@@ -1,4 +1,4 @@
-{% load materializecss %}
+{% load selecmat %}
 
 
     {% if field|is_checkbox %}
@@ -53,7 +53,7 @@
             <i class="material-icons prefix">{{ classes.icon }}</i>
         {% endif %}
 
-        <input type="date" id="{{ field.auto_id }}" name="{{ field.html_name }}" class="datepicker" value="{% if field.value %}{{ field.value }}{% endif %}" {% include 'materializecssform/attrs.html' %} >
+        <input type="date" id="{{ field.auto_id }}" name="{{ field.html_name }}" class="datepicker" value="{% if field.value %}{{ field.value }}{% endif %}" {% include 'selecmat/attrs.html' %} >
         <label for="{{ field.id_for_label }}">{{ field.label }}</label>
 
         {% for error in field.errors %}
@@ -73,7 +73,7 @@
             <i class="material-icons prefix">{{ classes.icon }}</i>
         {% endif %}
         {% if field|is_select_multiple %}
-            <select multiple name="{{ field.name }}" {% include 'materializecssform/attrs.html' %} placholder="{{ field.label }}">
+            <select multiple name="{{ field.name }}" {% include 'selecmat/attrs.html' %} placholder="{{ field.label }}">
                 {% if field|is_iterable %}
                     {% for choice in field %}
                           {{ choice.tag }}
@@ -85,7 +85,7 @@
                 {% endif %}
             </select>
         {% else %}
-            <select name="{{ field.name }}" {% include 'materializecssform/attrs.html' %} placeholder="{{ field.label }}">
+            <select name="{{ field.name }}" {% include 'selecmat/attrs.html' %} placeholder="{{ field.label }}">
                 {% if field|is_iterable %}
                     {% for choice in field %}
                             {{ choice.tag }}
@@ -146,7 +146,7 @@
             {% if classes.icon %}
                 <i class="material-icons prefix">{{ classes.icon }}</i>
             {% endif %}
-            <textarea id="{{ field.auto_id }}" class="materialize-textarea" name="{{field.html_name}}" {% include 'materializecssform/attrs.html' %} >{% if field.value %}{{ field.value }}{% endif %}</textarea>
+            <textarea id="{{ field.auto_id }}" class="materialize-textarea" name="{{field.html_name}}" {% include 'selecmat/attrs.html' %} >{% if field.value %}{{ field.value }}{% endif %}</textarea>
             {% if field.auto_id %}
                 <label class="{% if field.field.required %}{{ form.required_css_class }}{% endif %}" for="{{ field.auto_id }}">{{ field.label }}</label>
             {% endif %}

@@ -1,3 +1,3 @@
 include README.md
-recursive-include materializecssform *.html
+recursive-include selecmat *.html
 

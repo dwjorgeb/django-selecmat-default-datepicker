@@ -1,7 +1,7 @@
-# materialize-css-form
-Materializecss for Django Form
+# Selecmat
+MaterializeCSS + Selectize.js for Django Form
 
-A simple Django template tag to work with [Materializecss](http://materializecss.com/)
+A simple Django template tag to work with [Materializecss](http://materializecss.com/) and [Selectize.js](https://selectize.github.io/selectize.js/)
 
 
 
@@ -11,25 +11,25 @@ A simple Django template tag to work with [Materializecss](http://materializecss
 
 
 ```
-pip install  django-materializecss-form
+pip install  django-selecmat
 
 ```
 
 
 
-[on pypi](https://pypi.python.org/pypi/django-materializecss-form)
-[on GitHub](https://github.com/kalwalkden/django-materializecss-form)
+[on pypi](https://pypi.python.org/pypi/django-selecmat)
+[on GitHub](https://github.com/dwjorgeb/django-selecmat)
 
 Add to INSTALLED_APPS:
 
 ```
 INSTALLED_APPS = (
-     'materializecssform',
+     'selecmat',
      ...
      )
 ```
 
-Add Materializecss to your project:
+Add MaterializeCSS and Selectize to your project:
 
 In your base.html:
 
@@ -38,7 +38,10 @@ In your base.html:
 
 {% block css %}
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.1/css/materialize.min.css" integrity="sha256-qj3p6P1fJIV+Ndv7RW1ovZI2UhOuboj9GcODzcNFIN8=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+
+  <link type="text/css" rel="stylesheet" href="{% static 'css/selectize.css' %}" media="screen,projection"/>
+
 {% endblock css %}
 
 </head>
@@ -54,14 +57,15 @@ In your base.html:
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.1/js/materialize.min.js" integrity="sha256-SrBfGi+Zp2LhAvy9M1bWOCXztRU9Ztztxmu5BcYPcPE=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+  <script type="text/javascript" src="{% static 'js/selectize.min.js' %}"></script>
 
   <script>
   $(document).ready(function(){
 
     // Initialize materialize data picker
     $('.datepicker').datepicker({'format': 'yyyy-mm-dd'});
-    $('select').formSelect();
+    $('select').selectize();
 
   });
 
@@ -80,27 +84,27 @@ In your base.html:
 
 Use it like this, simple.
 
-{% load materializecss %}
+{% load selecmat %}
 
 ### All the form
 
-{{ form|materializecss }}
+{{ form|selecmat }}
 
 ### Individual field
 
-{{ form.<<field name>> | materializecss }}
+{{ form.<<field name>> | selecmat }}
 
 
 ### Custom size (default is 's12')
 
-{{ form|materializecss:'m6' }}
+{{ form|selecmat:'m6' }}
 
 
 ### Icons support
 This is most useful for adding a descriptive icon when you are creating a custom layout by building the form one field at a time. Substitue FIELD_NAME below with one of the field names from your form.
 ```html
-{{ form.FIELD_NAME|materializecss:'s12 m6, icon=person' }}
-{{ form.FIELD_NAME|materializecss:'custom_size=s12 m6, icon=person' }}
+{{ form.FIELD_NAME|selecmat:'s12 m6, icon=person' }}
+{{ form.FIELD_NAME|selecmat:'custom_size=s12 m6, icon=person' }}
 ```
 
 ## Demo
@@ -135,5 +139,8 @@ This is most useful for adding a descriptive icon when you are creating a custom
 
 Florent CLAPIÉ
 
-[https://pypi.org/user/florent1933/] https://pypi.org/user/florent1933/
+[https://pypi.org/user/florent1933/](https://pypi.org/user/florent1933/)
 
+## Adapted from 
+
+[django-materialize-form](https://github.com/kalwalkden/django-materializecss-form)

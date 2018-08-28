@@ -4,12 +4,12 @@ from django import template
 from django.forms.fields import DateTimeField, DateField
 from django.http import QueryDict
 
-from materializecssform import config
+from selecmatform import config
 
 register = template.Library()
 
 @register.filter
-def materializecss(element, options={}):
+def selecmat(element, options={}):
     if not options:
         label_cols = 's12'
         icon = ''
@@ -54,7 +54,7 @@ def render(element, markup_classes):
 
     if element_type == 'boundfield':
         add_input_classes(element)
-        template = get_template("materializecssform/field.html")
+        template = get_template("selecmat/field.html")
         context = {'field': element, 'classes': markup_classes}
     else:
         has_management = getattr(element, 'management_form', None)
@@ -63,13 +63,13 @@ def render(element, markup_classes):
                 for field in form.visible_fields():
                     add_input_classes(field)
 
-            template = get_template("materializecssform/formset.html")
+            template = get_template("selecmat/formset.html")
             context = {'formset': element, 'classes': markup_classes}
         else:
             for field in element.visible_fields():
                 add_input_classes(field)
 
-            template = get_template("materializecssform/form.html")
+            template = get_template("selecmat/form.html")
             context = {'form': element, 'classes': markup_classes}
 
     return template.render(context)
