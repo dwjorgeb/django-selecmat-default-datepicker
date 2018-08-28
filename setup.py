@@ -12,7 +12,7 @@ setup(
 
     name='django-selecmat',
 
-    version=materializecssform.__version__,
+    version=selecmat.__version__,
 
     packages=find_packages(),
 
@@ -20,7 +20,7 @@ setup(
 
     author_email="jorge.batista@route.technology",
 
-    description="A simple Django form template tag to work with Materializecss and Selectize.js",
+    description="A simple Django form template tag to work with MaterializeCSS and Selectize.js",
     long_description=long_description,
     long_description_content_type="text/markdown",
 
