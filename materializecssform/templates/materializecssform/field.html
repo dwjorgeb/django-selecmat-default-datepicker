@@ -73,7 +73,7 @@
             <i class="material-icons prefix">{{ classes.icon }}</i>
         {% endif %}
         {% if field|is_select_multiple %}
-            <select multiple name="{{ field.name }}" {% include 'materializecssform/attrs.html' %}>
+            <select multiple name="{{ field.name }}" {% include 'materializecssform/attrs.html' %} placholder="{{ field.label }}">
                 {% if field|is_iterable %}
                     {% for choice in field %}
                           {{ choice.tag }}
@@ -85,7 +85,7 @@
                 {% endif %}
             </select>
         {% else %}
-            <select name="{{ field.name }}" {% include 'materializecssform/attrs.html' %}>
+            <select name="{{ field.name }}" {% include 'materializecssform/attrs.html' %} placeholder="{{ field.label }}">
                 {% if field|is_iterable %}
                     {% for choice in field %}
                             {{ choice.tag }}
