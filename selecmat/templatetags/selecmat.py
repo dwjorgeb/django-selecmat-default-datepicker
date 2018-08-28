@@ -4,7 +4,7 @@ from django import template
 from django.forms.fields import DateTimeField, DateField
 from django.http import QueryDict
 
-from selecmatform import config
+from selecmat import config
 
 register = template.Library()
 
