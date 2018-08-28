@@ -73,10 +73,6 @@
                 <i class="material-icons prefix">{{ classes.icon }}</i>
             {% endif %}
             
-            {% if field.auto_id %}
-                <label class="control-label {{ classes.label }} {% if field.field.required %}{{ form.required_css_class }}{% endif %}">{{ field.label }}</label>
-            {% endif %}
-            
             <select id="{{ field.auto_id }}" {% if field|is_select_multiple %}multiple{% endif %} name="{{ field.name }}" {% include 'selecmat/attrs.html' %} placholder="{{ field.label }}">
                 {% if field|is_iterable %}
                     {% for choice in field %}
@@ -88,6 +84,10 @@
                     {% endfor %}
                 {% endif %}
             </select>
+            
+            {% if field.auto_id %}
+                <label class="control-label {{ classes.label }} {% if field.field.required %}{{ form.required_css_class }}{% endif %}">{{ field.label }}</label>
+            {% endif %}
 
             {% for error in field.errors %}
                 <span class="help-block {{ form.error_css_class }}">{{ error }}</span>
