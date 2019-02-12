@@ -123,3 +123,8 @@ def is_iterable(field):
         return True
     except TypeError:
         return False
+
+
+@register.filter
+def is_date(value):
+    return isinstance(value, datetime.date)
