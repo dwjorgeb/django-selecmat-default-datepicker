@@ -124,7 +124,6 @@ def is_iterable(field):
     except TypeError:
         return False
 
-
 @register.filter
-def is_date(value):
+def is_value_date(value):
     return isinstance(value, datetime.date)
